@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://186vv7nkadby"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.356863, 0.705882, 0.364706, 1)
+polygon = PackedVector2Array(-5, -46, -13, -40, -25, -33, -25, -27, -13, -21.016, -13, 6, -33, 7, -39, 28, -13, 28, -13, 33, 13, 33, 13, 28, 41, 28, 35, 7, 13, 6, 13, -21, 26, -27, 26, -33, 13, -40, 5, -46)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-2, -45, -5, -43, -24, -32, -24, -24, -8, -16, -16, 8, -32, 8, -37, 26, 0, 32, 39, 26, 34, 8, 16, 8, 8, -16, 25, -24, 25, -32, 5, -43, 2, -45)
