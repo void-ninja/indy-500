@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#ATTENTION MAKE SURE TO COPY ANY CHANGES IN HERE TO THE PLAYER2 SCRIPT
+#ATTENTION MAKE CHANGES IN THE PLAYER1 SCRIPT, THEN COPY THEM TO HERE
 
 @export var wheel_base = 100
 @export var steering_angle = 40
@@ -43,14 +43,14 @@ func apply_friction(delta):
 
 
 func get_input():
-	var turn = Input.get_axis("p1_left","p1_right")
+	var turn = Input.get_axis("p2_left","p2_right")
 	steer_direction = turn * deg_to_rad(steering_angle)
-	if Input.is_action_pressed("p1_up"):
+	if Input.is_action_pressed("p2_up"):
 		acceleration = transform.x * engine_power
-	if Input.is_action_pressed("p1_down"):
+	if Input.is_action_pressed("p2_down"):
 		acceleration = transform.x * braking
-	if Input.is_action_pressed("p1_drift") and Input.is_action_pressed("p1_left") or \
-			Input.is_action_pressed("p1_right"):
+	if Input.is_action_pressed("p2_drift") and Input.is_action_pressed("p2_left") or \
+			Input.is_action_pressed("p2_right"):
 		# to compensate for loss of acceleration during drift
 		acceleration = transform.x * (engine_power * 1.5) 
 		drift_counter += 1
@@ -79,7 +79,7 @@ func calculate_steering(delta):
 		
 	if velocity.length() > slip_speed:
 		traction = traction_fast
-	if Input.is_action_pressed("p1_drift"):
+	if Input.is_action_pressed("p2_drift"):
 		traction = traction_drift
 	# 4. Set the velocity and rotation to the new direction
 	var d = new_heading.dot(velocity.normalized())

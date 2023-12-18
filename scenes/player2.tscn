@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfvdqwoyxbq7m"]
+
+[ext_resource type="Script" path="res://scenes/player2.gd" id="1_ba3yy"]
+
+[node name="Player2" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_ba3yy")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+rotation = 1.5708
+color = Color(0.917647, 0.482353, 0.184314, 1)
+polygon = PackedVector2Array(-13.3333, -30, -26.6667, -26.6667, -30, -16.6667, -13.3333, -16.6667, -13, 6, -33, 7, -39, 28, -13, 28, -13, 33, 13, 33, 13, 28, 41, 28, 35, 7, 13, 6, 13.3333, -16.6667, 30, -16.6667, 26.6667, -26.6667, 13.3333, -30, -2.47698e-06, -56.6667)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-2, -45, -5, -43, -24, -32, -24, -24, -8, -16, -16, 8, -32, 8, -37, 26, 0, 32, 39, 26, 34, 8, 16, 8, 8, -16, 25, -24, 25, -32, 5, -43, 2, -45)
