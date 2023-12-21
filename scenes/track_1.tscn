@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2va8361lv8d7"]
+
+[ext_resource type="Script" path="res://scenes/track.gd" id="1_efc66"]
+
+[node name="Track 1" type="Node2D"]
+script = ExtResource("1_efc66")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(416, 64, 832, 64, 888, 80, 920, 104, 944, 136, 960, 192, 960, 448, 944, 504, 920, 536, 888, 560, 832, 576, 192, 576, 136, 560, 104, 536, 80, 504, 64, 448, 64, 192, 80, 136, 104, 104, 136, 80, 192, 64, 416, 64)
+width = 6.0
+default_color = Color(0.639216, 0.639216, 0.639216, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(224, 224, 264, 208, 320, 200, 704, 200, 760, 208, 800, 224, 816, 264, 824, 320, 816, 376, 800, 416, 760, 432, 704, 440, 320, 440, 264, 432, 224, 416, 208, 376, 208, 320, 208, 264, 224, 224)
+width = 5.0
+default_color = Color(0.639216, 0.639216, 0.639216, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]

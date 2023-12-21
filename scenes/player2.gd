@@ -3,24 +3,24 @@ extends CharacterBody2D
 #ATTENTION MAKE CHANGES IN THE PLAYER1 SCRIPT, THEN COPY THEM TO HERE
 
 @export var wheel_base = 100
-@export var steering_angle = 40
+@export var steering_angle = 20
 
 @export var friction = -55
 @export var drag = -0.06
 
-@export var engine_power = 900 #forward acceleration force
+@export var engine_power = 700 #forward acceleration force
 
 var acceleration = Vector2.ZERO
 
 var steer_direction
 
-@export var braking = -450
-@export var max_speed_reverse = 250
+@export var braking = -650
+@export var max_speed_reverse = 400
 
 @export var slip_speed = 400  # Speed where traction is reduced
 @export var traction_fast = 2.5 # High-speed traction
 @export var traction_slow = 10  # Low-speed traction
-@export var traction_drift = 0.8
+@export var traction_drift = 1
 
 var drift_counter: int
 
@@ -49,8 +49,9 @@ func get_input():
 		acceleration = transform.x * engine_power
 	if Input.is_action_pressed("p2_down"):
 		acceleration = transform.x * braking
-	if Input.is_action_pressed("p2_drift") and Input.is_action_pressed("p2_left") or \
-			Input.is_action_pressed("p2_right"):
+	if Input.is_action_pressed("p2_drift") and Input.is_action_pressed("p2_up") and \
+			(Input.is_action_pressed("p2_left") or \
+			Input.is_action_pressed("p2_right")):
 		# to compensate for loss of acceleration during drift
 		acceleration = transform.x * (engine_power * 1.5) 
 		drift_counter += 1
@@ -59,9 +60,13 @@ func get_input():
 		if drift_counter > 120:
 			velocity += velocity * 2
 			velocity = abs(velocity) * (rotation_vector/abs(rotation_vector))
+			steering_angle = 3
+			get_tree().create_timer(0.7).connect("timeout", reset_steering_angle)
 		elif drift_counter > 60:
 			velocity += velocity * 1.3
 			velocity = abs(velocity) * (rotation_vector/abs(rotation_vector))
+			steering_angle = 6
+			get_tree().create_timer(0.4).connect("timeout", reset_steering_angle)
 		drift_counter = 0
 		
 
@@ -88,3 +93,6 @@ func calculate_steering(delta):
 	if d < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
+
+func reset_steering_angle():
+	steering_angle = 20
