@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://186vv7nkadby" path="res://scenes/player1.tscn" id="2_welsb"]
 [ext_resource type="PackedScene" uid="uid://bfvdqwoyxbq7m" path="res://scenes/player2.tscn" id="3_hv8sx"]
 [ext_resource type="Script" path="res://scenes/camera.gd" id="5_uumyd"]
-[ext_resource type="PackedScene" uid="uid://c2va8361lv8d7" path="res://scenes/track_1.tscn" id="6_qeaur"]
+[ext_resource type="PackedScene" uid="uid://bd5htoc2t64y6" path="res://scenes/track_2.tscn" id="6_usvmg"]
 
 [sub_resource type="Gradient" id="Gradient_py4a7"]
 offsets = PackedFloat32Array(0.840336, 0.957983)
@@ -51,4 +51,4 @@ offset_bottom = 4.0
 pivot_offset = Vector2(2, 2)
 color = Color(0.996078, 0.345098, 1, 1)
 
-[node name="Track 1" parent="." instance=ExtResource("6_qeaur")]
+[node name="Track 2" parent="." instance=ExtResource("6_usvmg")]

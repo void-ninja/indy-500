@@ -15,7 +15,7 @@ rotation = 1.5708
 color = Color(0.917647, 0.482353, 0.184314, 1)
 polygon = PackedVector2Array(-13.3333, -30, -26.6667, -26.6667, -30, -16.6667, -13.3333, -16.6667, -13, 6, -33, 7, -39, 28, -13, 28, -13, 33, 13, 33, 13, 28, 41, 28, 35, 7, 13, 6, 13.3333, -16.6667, 30, -16.6667, 26.6667, -26.6667, 13.3333, -30, -2.47698e-06, -56.6667)
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(10, 3.38813e-21)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_3yofd")

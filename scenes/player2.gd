@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var steering_angle = 20
 
 @export var friction = -55
+@export var wall_friction = 0.05
+@export var wall_friction_threshold = 100 # Max velocity that the wall friction gets applied
 @export var drag = -0.06
 
 @export var engine_power = 700 #forward acceleration force
@@ -25,12 +27,22 @@ var steer_direction
 var drift_counter: int
 
 
+func _init() -> void:
+	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+
+
 func _physics_process(delta: float) -> void:
 	acceleration = Vector2.ZERO
 	get_input()
 	apply_friction(delta)
 	calculate_steering(delta)
 	velocity += acceleration * delta
+	
+	if is_on_wall() and sqrt(velocity.x ** 2 + velocity.y ** 2) < wall_friction_threshold:
+		velocity = lerp(velocity,Vector2.ZERO,wall_friction)
+	elif is_on_wall():
+		velocity = lerp(velocity,Vector2.ZERO,wall_friction/3)
+	
 	move_and_slide()
 
 
