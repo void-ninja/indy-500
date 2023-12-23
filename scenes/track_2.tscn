@@ -22,33 +22,48 @@ texture = ExtResource("2_aqr73")
 points = PackedVector2Array(416, 64, 832, 72, 888, 88, 912, 104, 928, 144, 928, 200, 880, 264, 856, 304, 840, 352, 824, 400, 816, 448, 824, 488, 816, 536, 784, 560, 736, 576, 656, 584, 400, 568, 360, 544, 336, 496, 328, 456, 304, 416, 264, 400, 216, 392, 144, 384, 104, 368, 80, 328, 72, 200, 88, 152, 112, 128, 160, 104, 304, 64, 416, 64)
 width = 6.0
 default_color = Color(0.639216, 0.639216, 0.639216, 1)
+joint_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 1
 
 [node name="Line2D2" type="Line2D" parent="LineManager"]
 points = PackedVector2Array(384, 200, 704, 200, 760, 208, 792, 240, 792, 280, 784, 328, 776, 376, 752, 432, 720, 464, 672, 480, 608, 480, 544, 464, 496, 440, 456, 392, 424, 344, 400, 312, 368, 296)
 width = 5.0
 default_color = Color(0.639216, 0.639216, 0.639216, 1)
+joint_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 1
 
 [node name="Line2D3" type="Line2D" parent="LineManager"]
 points = PackedVector2Array(336, 280, 296, 272, 256, 280, 224, 288, 192, 280, 184, 248, 192, 224, 216, 208, 248, 200, 280, 200, 320, 200, 352, 200)
 width = 5.0
 default_color = Color(0.639216, 0.639216, 0.639216, 1)
+joint_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 1
 
 [node name="Line2D4" type="Line2D" parent="LineManager"]
-points = PackedVector2Array(320, 232, 352, 200)
+points = PackedVector2Array(320, 240, 352, 200)
 width = 5.0
 default_color = Color(1, 1, 1, 0)
+joint_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 1
 
 [node name="Line2D5" type="Line2D" parent="LineManager"]
-points = PackedVector2Array(392, 232, 384, 200)
+points = PackedVector2Array(400, 256, 384, 200)
 width = 5.0
 default_color = Color(1, 1, 1, 0)
+joint_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 1
 
 [node name="Secret" type="Line2D" parent="."]
 points = PackedVector2Array(336, 280, 368, 296)
 width = 5.0
-default_color = Color(0.47451, 0.47451, 0.47451, 1)
+default_color = Color(0.537255, 0.537255, 0.537255, 1)
 
 [node name="Secret2" type="Line2D" parent="."]
 points = PackedVector2Array(352, 200, 384, 200)
 width = 5.0
-default_color = Color(0.478431, 0.478431, 0.478431, 1)
+default_color = Color(0.537255, 0.537255, 0.537255, 1)

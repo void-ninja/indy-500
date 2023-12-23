@@ -27,6 +27,10 @@ var steer_direction
 var drift_counter: int
 
 
+func _to_string() -> String:
+	return "Player1"
+
+
 func _init() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 
@@ -38,12 +42,17 @@ func _physics_process(delta: float) -> void:
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	
-	if is_on_wall() and sqrt(velocity.x ** 2 + velocity.y ** 2) < wall_friction_threshold:
+	if is_on_wall() and velocity.length() < wall_friction_threshold:
 		velocity = lerp(velocity,Vector2.ZERO,wall_friction)
 	elif is_on_wall():
 		velocity = lerp(velocity,Vector2.ZERO,wall_friction/3)
 	
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().to_string() == "Player2" and \
+				collision.get_collider_velocity().length_squared() > velocity.length_squared() :
+			velocity -= (collision.get_collider().get_global_position() - global_position) * 3
 
 
 func apply_friction(delta):
